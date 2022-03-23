@@ -11,6 +11,6 @@ ENV ENDPOINT_URL='http://ip:9000/' \
     API_USER='admin' \
     API_PASSWORD='passwordhere' \
     ENDPOINT_ID='1' \
-    IGNORE_CONTAINERS='/portainer|#|PortainerBackup'
+    IGNORE_CONTAINERS='portainer|#|portainerbackup'
 
 RUN apt-get update -y
