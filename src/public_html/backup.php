@@ -190,17 +190,17 @@ if (count($containers) > 0) {
     foreach ($containers as $container) {
         $output .= tablevel(1) . "AppRecovery" . ($loop + 1) . ":\n";
         $name = $container["Name"];
-        if (strlen($name) > 15) {
+        if (strlen($name) > 30) {
             $namebits = explode("/", $container["Image"]);
-            $name = substr($name, 0, 15);
+            $name = substr($name, 0, 30);
             if (count($namebits) >= 2) {
                 $name = $namebits[1];
             }
         }
         $name = str_replace(":", "", $name);
         $name = str_replace("/", "", $name);
-        if (strlen($name) > 15) {
-            $name = substr($name, 0, 15);
+        if (strlen($name) > 30) {
+            $name = substr($name, 0, 30);
         }
         $output .= tablevel(2) . "container_name: " . $name . "\n";
         $output .= tablevel(2) . "restart: always\n";
