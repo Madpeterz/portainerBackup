@@ -66,8 +66,7 @@ if ($response->getStatusCode() != 200) {
 $containers = [];
 $recoverMounts = [];
 $raw_containers = json_decode($response->getBody(), true);
-$ignore_containers = explode("|#|", $ignoreContainerNames);
-
+$containerNames = [];
 foreach ($raw_containers as $entry) {
     $newContainer = [
         "Name" => $entry["Id"],
@@ -82,9 +81,11 @@ foreach ($raw_containers as $entry) {
         $newContainer["Name"] = $entry["Names"][0];
     }
 
-    if (in_array($newContainer["Name"], $ignore_containers) == true) {
+    if (in_array($newContainer["Name"], $ignoreContainerNames) == true) {
         continue;
     }
+    $containerNames[] = $newContainer["Name"];
+
 
     if (array_key_exists("Mounts", $entry) == true) {
         $loopMount = 1;
@@ -249,6 +250,16 @@ foreach ($recoverMounts as $container => $mount) {
 }
 $output .= '</textarea>';
 $grid->addContent($output, 12);
+
+$grid->addContent("<h4>List of all containers</h4>", 12);
+$output = '<textarea cols="175" rows="15">';
+foreach ($containerNames as $name) {
+    $output .= $name . "\n";
+}
+$output .= '</textarea>';
+$grid->addContent($output, 12);
+
+
 
 echo $grid->getOutput();
 include "footer.html";
