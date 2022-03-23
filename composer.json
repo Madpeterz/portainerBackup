@@ -1,0 +1,28 @@
+{
+    "name": "blackatom/cycle",
+    "description": "yay",
+    "type": "project",
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "madpeterz/yapfbootstrap": "^1.2"
+    },
+    "authors": [
+        {
+            "name": "Peter",
+            "email": "dev@lilium.local"
+        }
+    ],
+    "scripts": {
+        "dev-test": [
+            "phpunit --colors=always --configuration phpunit.xml --testdox --testsuite All "
+        ],
+        "phpcs": "phpcs --parallel=4",
+        "phpcbf": "phpcbf",
+        "phpunit": "phpunit"
+    }
+}

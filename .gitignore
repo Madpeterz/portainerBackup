@@ -1,0 +1,11 @@
+.ftpconfig
+webpanel/gen.php
+gen
+catche
+vendor/squizlabs
+vendor/bin
+composer.lock
+docs/coverage/
+src/cache/
+src/public_html/imagecache/**
+.phpunit.result.cache
