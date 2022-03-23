@@ -80,7 +80,7 @@ foreach ($raw_containers as $entry) {
     if (array_key_exists("Names", $entry) == true) {
         $newContainer["Name"] = $entry["Names"][0];
     }
-
+    $newContainer["Name"] = str_replace("/", "", $newContainer["Name"]);
     if (in_array($newContainer["Name"], $ignoreContainerNames) == true) {
         continue;
     }
